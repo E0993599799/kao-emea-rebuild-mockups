@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kao EMEA Homepage Compare Board</title>
+  <style>
+    :root{
+      --bg:#0f1520;
+      --panel:#182231;
+      --panel-2:#101827;
+      --ink:#ecf2fa;
+      --muted:#9db0c5;
+      --line:rgba(255,255,255,.12);
+      --a:#5aa9ff;
+      --b:#e26a6a;
+      --c:#7bc7b2;
+      --ok:#b7f0c7;
+      --shadow:0 24px 60px rgba(0,0,0,.28);
+      --max:1400px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,169,255,.14), transparent 24%),
+        radial-gradient(circle at top right, rgba(123,199,178,.12), transparent 20%),
+        linear-gradient(180deg,#0f1520,#131c29 45%,#0d1520 100%);
+      color:var(--ink);
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 28px));margin:0 auto}
+    .hero{padding:28px 0 18px}
+    .hero-shell,.summary,.variant,.note{background:rgba(24,34,49,.88);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow)}
+    .hero-shell{padding:28px}
+    .eyebrow{display:inline-flex;min-height:30px;align-items:center;padding:0 12px;border-radius:999px;background:#102234;color:#8fd3ff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    h1{margin:14px 0 10px;font-size:clamp(34px,5vw,62px);line-height:.95;letter-spacing:-.04em;max-width:12ch}
+    .lead{max-width:72ch;color:var(--muted);font-size:18px;line-height:1.7}
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .summary{padding:18px}
+    .summary h2{margin:0 0 8px;font-size:22px}
+    .summary p{margin:0;color:var(--muted);line-height:1.65}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .chip{padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:13px;color:#d9e7f6}
+    .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0 12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid var(--line);font-weight:700;font-size:14px;background:rgba(255,255,255,.04)}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn-a{border-color:rgba(90,169,255,.45);color:#d7ebff}
+    .btn-b{border-color:rgba(226,106,106,.45);color:#ffe0e0}
+    .btn-c{border-color:rgba(123,199,178,.45);color:#ddfff4}
+    .grid{display:grid;gap:18px;padding:10px 0 60px}
+    .variant{overflow:hidden}
+    .variant-head{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;padding:22px;border-bottom:1px solid var(--line)}
+    .variant-head h2{margin:0 0 8px;font-size:34px;letter-spacing:-.03em}
+    .variant-head p{margin:0;color:var(--muted);line-height:1.7}
+    .scorebox{display:grid;gap:10px}
+    .score{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.04);font-size:14px}
+    .pill{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .pill-a{background:rgba(90,169,255,.15);color:#a8d2ff}
+    .pill-b{background:rgba(226,106,106,.15);color:#ffc2c2}
+    .pill-c{background:rgba(123,199,178,.14);color:#c9fff0}
+    .body{padding:18px 22px 22px}
+    .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+    .meta .cell{padding:14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+    .meta small{display:block;color:#9ab0c8;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+    .meta strong{font-size:15px}
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+    .note{padding:16px 18px}
+    .note h3{margin:0 0 8px;font-size:18px}
+    .note ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
+    iframe{width:100%;height:760px;border:0;border-radius:18px;background:#fff;display:block}
+    .recommend{margin-top:18px;padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,rgba(123,199,178,.14),rgba(90,169,255,.08));border:1px solid rgba(123,199,178,.22)}
+    .recommend strong{color:var(--ok)}
+    @media (max-width:1100px){
+      .quick,.meta,.variant-head,.bullets{grid-template-columns:1fr}
+      iframe{height:620px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap hero">
+    <section class="hero-shell">
+      <span class="eyebrow">Kao EMEA • compare board</span>
+      <h1>เทียบ 3 ทิศทางหน้าแรกในบอร์ดเดียว</h1>
+      <p class="lead">บอร์ดนี้รวม 3 mockup ที่ต่างกันชัดเจน: A เน้น commerce clarity, B เน้น premium editorial, และ C เน้น hybrid ที่สมดุลสุดสำหรับ Kao. เปิดดู เปรียบเทียบ และใช้ตัดสินใจต่อได้ในไฟล์เดียว.</p>
+      <div class="chips">
+        <span class="chip">A = เร็ว ชัด ขายง่าย</span>
+        <span class="chip">B = mood แรง ภาพลักษณ์พรีเมียม</span>
+        <span class="chip">C = balance ระหว่างขายกับแบรนด์</span>
+        <span class="chip">Recommendation = C</span>
+      </div>
+      <div class="toolbar">
+        <a class="btn btn-a" href="#variant-a">ไป Variant A</a>
+        <a class="btn btn-b" href="#variant-b">ไป Variant B</a>
+        <a class="btn btn-c" href="#variant-c">ไป Variant C</a>
+        <a class="btn" href="homepage-variant-a-commerce.html" target="_blank">เปิด A แยก</a>
+        <a class="btn" href="homepage-variant-b-editorial.html" target="_blank">เปิด B แยก</a>
+        <a class="btn" href="homepage-variant-c-hybrid.html" target="_blank">เปิด C แยก</a>
+      </div>
+      <div class="quick">
+        <article class="summary"><h2>Variant A</h2><p>เหมาะเมื่อเป้าหมายหลักคือ conversion, category discovery, concern SEO, และการทำให้ user ซื้อได้เร็วที่สุด.</p></article>
+        <article class="summary"><h2>Variant B</h2><p>เหมาะเมื่อแบรนด์ต้องการยกระดับ perception, ทำ launch hero, และเล่าเรื่องแบบ editorial chapter มากกว่า storefront.</p></article>
+        <article class="summary"><h2>Variant C</h2><p>เหมาะเมื่ออยากได้ทั้ง premium mood และ shopper path ที่ชัด เป็นตัวกลางที่ใช้งานจริงได้ดีที่สุด.</p></article>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap grid">
+    <section id="variant-a" class="variant">
+      <div class="variant-head">
+        <div>
+          <span class="pill pill-a">Variant A • Commerce clarity</span>
+          <h2>Shop-first, SEO-first, conversion-first</h2>
+          <p>ยืม logic จาก Aquaphor โดยตรง: category, concern, best sellers, advice-to-commerce, และ CTA ที่ชัด. ตัวนี้เร็วสุดสำหรับ e-commerce operating model.</p>
+        </div>
+        <div class="scorebox">
+          <div class="score"><span>Commerce clarity</span><strong>9.5/10</strong></div>
+          <div class="score"><span>Brand premium feel</span><strong>6.5/10</strong></div>
+          <div class="score"><span>SEO scalability</span><strong>9/10</strong></div>
+          <div class="score"><span>Launch storytelling</span><strong>6/10</strong></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="meta">
+          <div class="cell"><small>Best for</small><strong>ยอดขาย / intent routing</strong></div>
+          <div class="cell"><small>Strength</small><strong>เข้าใจง่ายทันที</strong></div>
+          <div class="cell"><small>Risk</small><strong>premium ไม่แรงพอ</strong></div>
+          <div class="cell"><small>Reference bias</small><strong>Aquaphor</strong></div>
+        </div>
+        <div class="bullets">
+          <article class="note"><h3>จุดเด่น</h3><ul><li>category + concern pathway ชัด</li><li>best seller merchandising ใช้งานได้ทันที</li><li>content รองรับ SEO และ conversion</li></ul></article>
+          <article class="note"><h3>ข้อควรระวัง</h3><ul><li>อาจดู functional กว่า premium</li><li>brand aura น้อยกว่าอีก 2 แบบ</li><li>ต้องระวังไม่ให้คล้าย mass-commerce มากไป</li></ul></article>
+        </div>
+        <iframe src="homepage-variant-a-commerce.html" title="Variant A"></iframe>
+      </div>
+    </section>
+
+    <section id="variant-b" class="variant">
+      <div class="variant-head">
+        <div>
+          <span class="pill pill-b">Variant B • Premium editorial</span>
+          <h2>Brand-first, cinematic, slow luxury rhythm</h2>
+          <p>อิง Anomaly ชัด: hero แบบ manifesto, typography เด่น, spacing กล้า, chapter-based storytelling. เหมาะกับการยก perception และทำให้ Kao ดู refined มากขึ้น.</p>
+        </div>
+        <div class="scorebox">
+          <div class="score"><span>Commerce clarity</span><strong>5.5/10</strong></div>
+          <div class="score"><span>Brand premium feel</span><strong>9.5/10</strong></div>
+          <div class="score"><span>SEO scalability</span><strong>6.5/10</strong></div>
+          <div class="score"><span>Launch storytelling</span><strong>9/10</strong></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="meta">
+          <div class="cell"><small>Best for</small><strong>brand lift / campaign</strong></div>
+          <div class="cell"><small>Strength</small><strong>ภาพจำและ mood</strong></div>
+          <div class="cell"><small>Risk</small><strong>commerce เบาเกิน</strong></div>
+          <div class="cell"><small>Reference bias</small><strong>Anomaly</strong></div>
+        </div>
+        <div class="bullets">
+          <article class="note"><h3>จุดเด่น</h3><ul><li>hero และ type มี character สูง</li><li>section rhythm ดู sophisticated</li><li>เหมาะกับ premium repositioning</li></ul></article>
+          <article class="note"><h3>ข้อควรระวัง</h3><ul><li>conversion path อ้อมกว่า</li><li>ไม่ใช่ storefront-first</li><li>อาจต้องมี commerce layer เพิ่มถ้าจะใช้จริง</li></ul></article>
+        </div>
+        <iframe src="homepage-variant-b-editorial.html" title="Variant B"></iframe>
+      </div>
+    </section>
+
+    <section id="variant-c" class="variant">
+      <div class="variant-head">
+        <div>
+          <span class="pill pill-c">Variant C • Hybrid recommended</span>
+          <h2>Recommended balance: brand aura + shopper clarity</h2>
+          <p>ตัวนี้เอา concern/category logic จาก Aquaphor มาผสานกับ visual restraint, typography, และ editorial pacing จาก Anomaly. เหมาะสุดถ้าต้องการหน้าแรกที่ทั้งขายได้และดู premium.</p>
+        </div>
+        <div class="scorebox">
+          <div class="score"><span>Commerce clarity</span><strong>8.5/10</strong></div>
+          <div class="score"><span>Brand premium feel</span><strong>8.8/10</strong></div>
+          <div class="score"><span>SEO scalability</span><strong>8.5/10</strong></div>
+          <div class="score"><span>Launch storytelling</span><strong>8.5/10</strong></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="meta">
+          <div class="cell"><small>Best for</small><strong>production direction</strong></div>
+          <div class="cell"><small>Strength</small><strong>สมดุลที่สุด</strong></div>
+          <div class="cell"><small>Risk</small><strong>ต้องขัดต่อให้คม</strong></div>
+          <div class="cell"><small>Reference bias</small><strong>Hybrid</strong></div>
+        </div>
+        <div class="bullets">
+          <article class="note"><h3>จุดเด่น</h3><ul><li>ยังมี shopper path ชัด</li><li>premium กว่า A มาก</li><li>พร้อมต่อยอดเป็น design system จริง</li></ul></article>
+          <article class="note"><h3>ข้อควรระวัง</h3><ul><li>ต้องเลือกว่าจะ lean ไปทาง commerce หรือ editorial อีกนิด</li><li>ควร refine mobile และ card density ต่อ</li><li>ควรต่อ PLP/PDP ใน language เดียวกัน</li></ul></article>
+        </div>
+        <iframe src="homepage-variant-c-hybrid.html" title="Variant C"></iframe>
+        <div class="recommend"><strong>Recommendation:</strong> ถ้าจะเลือก 1 direction เพื่อเดินต่อ ข้าแนะนำ Variant C แล้วค่อยเติม category sharpness จาก A และยืม hero confidence จาก B อีกเล็กน้อย.</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

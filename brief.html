@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kao EMEA Rebuild Brief</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --ink: #0f172a;
+      --muted: #4b5563;
+      --line: #d8e1ef;
+      --panel: #ffffff;
+      --brand: #007c89;
+      --brand-2: #0f766e;
+      --accent: #2563eb;
+      --soft: #ecfeff;
+      --warn: #b91c1c;
+      --ok: #166534;
+      --radius: 18px;
+      --shadow: 0 18px 50px rgba(15, 23, 42, .08);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: Inter, "Noto Sans Thai", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: linear-gradient(180deg, #f8fbff 0%, #f5f7fb 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .wrap { width: min(1200px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
+    .hero {
+      background: linear-gradient(135deg, rgba(0,124,137,.12), rgba(37,99,235,.08));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(32px, 5vw, 54px); line-height: 1.05; }
+    h2 { margin: 0 0 14px; font-size: 24px; }
+    h3 { margin: 18px 0 10px; font-size: 18px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+      border-radius: 999px; background: rgba(255,255,255,.8); border: 1px solid var(--line);
+      font-size: 14px; color: var(--ink);
+    }
+    .grid { display: grid; gap: 20px; margin-top: 22px; }
+    .grid.cols-2 { grid-template-columns: 1.1fr .9fr; }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 24px;
+    }
+    .code {
+      font-family: var(--mono); font-size: 13px; background: #0f172a; color: #e5eefb;
+      padding: 14px; border-radius: 14px; overflow: auto; white-space: pre-wrap;
+    }
+    ul, ol { margin: 8px 0 0 22px; padding: 0; }
+    li { margin: 7px 0; color: var(--muted); }
+    .kpi { font-size: 30px; font-weight: 700; color: var(--ink); }
+    .kpi-label { color: var(--muted); font-size: 14px; }
+    .flag.bad { color: var(--warn); font-weight: 700; }
+    .flag.good { color: var(--ok); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #f8fafc; }
+    tr:last-child td { border-bottom: 0; }
+    .step {
+      padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #fbfdff;
+    }
+    .subtle { color: var(--muted); font-size: 14px; }
+    @media (max-width: 960px) {
+      .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+      .wrap { width: min(100% - 20px, 1200px); }
+      .hero, .panel { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Kao EMEA Homepage Audit + Rebuild Brief</h1>
+      <p>เอกสารนี้สรุปสิ่งที่ scrape และ audit ได้จากหน้า <span class="code">https://www.kao.com/emea/en/</span> แล้วแปลงเป็น brief สำหรับสร้างเว็บใหม่ให้สวยงาม ทันสมัย มีระบบ รองรับ ecommerce และวางฐาน SEO ให้เจอใน Google ได้ดีกว่าเดิม</p>
+      <div class="meta">
+        <span class="chip">Audit date: 2026-06-30</span>
+        <span class="chip">Source: Kao EMEA Homepage</span>
+        <span class="chip">Direction: modern brand-commerce + SEO</span>
+      </div>
+    </section>
+
+    <section class="grid cols-3">
+      <div class="panel"><div class="kpi">200 OK</div><div class="kpi-label">HTTP status</div></div>
+      <div class="panel"><div class="kpi">159,586</div><div class="kpi-label">HTML bytes</div></div>
+      <div class="panel"><div class="kpi">0</div><div class="kpi-label">JSON-LD detected</div></div>
+    </section>
+
+    <section class="grid cols-2">
+      <div class="panel">
+        <h2>สิ่งที่พบจากหน้าเดิม</h2>
+        <ul>
+          <li>Title ปัจจุบันคือ <strong>Kao EMEA Homepage</strong></li>
+          <li>Canonical มีแล้ว: <span class="code">https://www.kao.com/emea/en/</span></li>
+          <li>Meta description ว่าง</li>
+          <li>Browser audit พบ JS exceptions 2 รายการ</li>
+          <li>โครงสร้างหลักเป็น corporate-information first มากกว่า commerce-first</li>
+          <li>Sections หลัก: purpose, Kao EMEA, Brands, Innovations, Careers, Sustainability, Latest News</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>ปัญหาหลักที่ต้องแก้</h2>
+        <ul>
+          <li><span class="flag.bad">SEO</span> — title generic, meta description หาย, schema ไม่มี</li>
+          <li><span class="flag.bad">Commerce</span> — ไม่มี product discovery path ชัดเจน</li>
+          <li><span class="flag.bad">Navigation</span> — พาผู้ใช้ไป content ได้ แต่ยังไม่พาไป shopping intent</li>
+          <li><span class="flag.bad">Conversion</span> — CTA ส่วนใหญ่เป็น Read more แทน Shop / Explore / Find routine</li>
+          <li><span class="flag.bad">System</span> — ยังไม่มีโมดูลระดับ ecommerce เช่น best sellers, categories, reviews, bundles, filters</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Scraped content structure</h2>
+      <table>
+        <thead><tr><th>Layer</th><th>Observed content</th><th>Meaning for rebuild</th></tr></thead>
+        <tbody>
+          <tr><td>Header</td><td>Logo, region/language, worldwide, search, nav pillars</td><td>ใช้เป็นฐาน แต่ต้องเพิ่ม account / wishlist / cart / shop taxonomy</td></tr>
+          <tr><td>Hero</td><td>Purpose-led message about people and planet</td><td>ควรคง brand trust แต่เพิ่ม strong commercial CTA</td></tr>
+          <tr><td>Cards</td><td>Kao EMEA, Brands, Innovations, Careers, Sustainability</td><td>แปลงเป็น modular discovery grid ที่เชื่อมไป category / concern / brand hub</td></tr>
+          <tr><td>News</td><td>Latest News carousel</td><td>ลด dominance แล้วแยก content hub กับ commerce hub ให้ชัด</td></tr>
+          <tr><td>Footer</td><td>Simple corporate footer</td><td>ขยายเป็น deep footer รองรับ help, shipping, returns, brands, categories</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid cols-2">
+      <div class="panel">
+        <h2>Homepage ใหม่ควรมีอะไร</h2>
+        <ol>
+          <li>Hero พร้อม <span class="code">Shop now</span> และ <span class="code">Explore brands</span></li>
+          <li>Shop by category / concern / brand</li>
+          <li>Best sellers / new arrivals / campaign modules</li>
+          <li>Signature brand blocks</li>
+          <li>Routine finder / concern finder</li>
+          <li>Science & innovation proof section</li>
+          <li>Sustainability with metrics and proof</li>
+          <li>Editorial / Journal block ที่ผูกกับ product intent</li>
+          <li>Newsletter / loyalty / retention module</li>
+          <li>Deep footer สำหรับ commerce support</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h2>Ecommerce baseline</h2>
+        <ul>
+          <li>PLP / PDP / cart / checkout</li>
+          <li>Search + autocomplete</li>
+          <li>Filters / sort / collection logic</li>
+          <li>Reviews / ratings / trust proof</li>
+          <li>Wishlist</li>
+          <li>Promo / campaign CMS slots</li>
+          <li>Analytics events</li>
+          <li>Cross-sell / upsell</li>
+          <li>Localized catalog / market logic if multi-region</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>SEO plan</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>On-page fixes</h3>
+          <ul>
+            <li>ตั้ง title ใหม่ให้มี keyword intent จริง</li>
+            <li>ใส่ meta description ที่สื่อ category + region + brand value</li>
+            <li>ให้มี H1 ที่ชัดเพียงหนึ่งตัว</li>
+            <li>จัด H2/H3 เป็น keyword clusters</li>
+            <li>เพิ่ม internal linking ไป category, concern, brand, editorial hubs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Technical & structured data</h3>
+          <ul>
+            <li>Organization</li>
+            <li>WebSite + SearchAction</li>
+            <li>BreadcrumbList</li>
+            <li>CollectionPage / ItemList</li>
+            <li>Product / Offer / AggregateRating</li>
+            <li>Article / NewsArticle</li>
+            <li>XML sitemap, robots, hreflang, canonical discipline</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Suggested title direction</h3>
+      <div class="code">Kao EMEA | Hair Care, Skin Care, Beauty Brands & Innovation</div>
+      <h3>Suggested meta description direction</h3>
+      <div class="code">Discover Kao EMEA’s hair care, skin care and personal care brands, science-led innovation, sustainability initiatives, and expert beauty solutions across Europe, the Middle East and Africa.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Recommended information architecture</h2>
+      <table>
+        <thead><tr><th>Top level</th><th>Children</th></tr></thead>
+        <tbody>
+          <tr><td>Shop</td><td>Categories, concerns, collections, best sellers, new arrivals</td></tr>
+          <tr><td>Brands</td><td>Brand landing pages + featured collections</td></tr>
+          <tr><td>Innovation</td><td>Science stories, ingredient stories, technology proof</td></tr>
+          <tr><td>Sustainability</td><td>Strategy, impact pages, measurable programs</td></tr>
+          <tr><td>Journal</td><td>How-to, routines, launches, news, expert content</td></tr>
+          <tr><td>Support</td><td>Shipping, returns, FAQ, contact</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid cols-2">
+      <div class="panel">
+        <h2>What to keep</h2>
+        <ul>
+          <li>Japanese heritage and trust</li>
+          <li>Innovation / R&D strength</li>
+          <li>Sustainability positioning</li>
+          <li>Existing brand and news content as source material</li>
+          <li>Regional EMEA credibility</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>What to rebuild heavily</h2>
+        <ul>
+          <li>Hero and CTA system</li>
+          <li>Navigation for commerce</li>
+          <li>Section density and discovery paths</li>
+          <li>Footer depth</li>
+          <li>Search experience</li>
+          <li>SEO foundations</li>
+          <li>Product/category storytelling blocks</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Recommended phases</h2>
+      <div class="grid cols-3">
+        <div class="step"><strong>Phase 1</strong><br><span class="subtle">Strategy, goals, markets, taxonomy, IA</span></div>
+        <div class="step"><strong>Phase 2</strong><br><span class="subtle">Design system, CMS model, SEO field model</span></div>
+        <div class="step"><strong>Phase 3</strong><br><span class="subtle">Homepage, PLP, PDP, brand page, editorial page</span></div>
+        <div class="step"><strong>Phase 4</strong><br><span class="subtle">Schema, analytics, Core Web Vitals, internal linking</span></div>
+        <div class="step"><strong>Phase 5</strong><br><span class="subtle">Migration, redirects, QA, launch readiness</span></div>
+        <div class="step"><strong>Next deliverables</strong><br><span class="subtle">wireframe, IA map, SEO matrix, component inventory, mockup, implementation plan</span></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Files</h2>
+      <ul>
+        <li>Markdown brief: <span class="code">docs/kao-emea-rebuild/README.md</span></li>
+        <li>HTML brief: <span class="code">docs/kao-emea-rebuild/brief.html</span></li>
+      </ul>
+      <p class="subtle">This is a preparation brief for rebuild. It is not the final design or production implementation.</p>
+    </section>
+  </div>
+</body>
+</html>

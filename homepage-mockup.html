@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kao EMEA — Modern Commerce Homepage Mockup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f9fc;
+      --surface: #ffffff;
+      --surface-2: #eef6fb;
+      --ink: #061b31;
+      --text: #3d5875;
+      --muted: #6b7f97;
+      --line: #dfe8f2;
+      --brand: #007c89;
+      --brand-deep: #045662;
+      --accent: #533afd;
+      --accent-2: #7c61ff;
+      --mint: #d8f2ec;
+      --rose: #ffe4ef;
+      --sky: #deefff;
+      --sand: #fff2df;
+      --success: #15be53;
+      --success-text: #108c3d;
+      --dark: #1c1e54;
+      --shadow-1: rgba(50,50,93,0.18) 0px 24px 38px -24px, rgba(0,0,0,0.08) 0px 16px 24px -16px;
+      --shadow-2: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+      --radius: 8px;
+      --radius-lg: 20px;
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(83,58,253,.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(0,124,137,.07), transparent 24%),
+        linear-gradient(180deg, #fbfdff 0%, #f6f9fc 58%, #eef6fb 100%);
+      font-feature-settings: "ss01";
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,.82);
+      border-bottom: 1px solid rgba(223,232,242,.8);
+    }
+    .nav {
+      display: grid; grid-template-columns: auto 1fr auto; gap: 24px;
+      align-items: center; min-height: 74px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.02em; }
+    .logo-mark { font-size: 34px; color: var(--brand); line-height: 1; }
+    .region { font-size: 13px; color: var(--muted); }
+    .nav-links, .nav-actions { display: flex; align-items: center; gap: 18px; }
+    .nav-links a { font-size: 15px; color: var(--ink); }
+    .nav-actions a { font-size: 14px; color: var(--text); }
+    .pill, .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 42px; padding: 0 16px; border-radius: 6px;
+      font-size: 15px; font-weight: 600; transition: .22s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-1); }
+    .btn-primary:hover { background: #4434d4; }
+    .btn-secondary { background: #fff; color: var(--accent); border-color: #cfcafc; }
+    .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+    .hero {
+      padding: 36px 0 28px;
+    }
+    .hero-shell {
+      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.78));
+      border: 1px solid rgba(223,232,242,.95);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-2);
+    }
+    .hero-main {
+      display: grid; grid-template-columns: 1.08fr .92fr; gap: 24px; padding: 28px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center; min-height: 32px; padding: 0 12px;
+      border-radius: 999px; border: 1px solid #dbeafe; background: #fff; color: var(--accent);
+      font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    }
+    h1 {
+      margin: 16px 0 14px; font-weight: 300; font-size: clamp(42px, 6vw, 70px);
+      letter-spacing: -1.4px; line-height: .97;
+    }
+    .lead { font-size: 20px; line-height: 1.45; color: var(--text); max-width: 62ch; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .trust-row, .mini-kpis { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .trust-card, .kpi {
+      background: rgba(255,255,255,.88); border: 1px solid var(--line); border-radius: 8px;
+      padding: 12px 14px; box-shadow: var(--shadow-1);
+    }
+    .trust-card strong { display: block; font-size: 14px; }
+    .trust-card span, .kpi span { color: var(--muted); font-size: 13px; }
+    .hero-visual {
+      position: relative; min-height: 620px; border-radius: 24px; overflow: hidden;
+      background: linear-gradient(180deg, #e8f6ff, #fdf3fd 42%, #f6f9fc 100%);
+      border: 1px solid rgba(255,255,255,.7);
+    }
+    .hero-visual::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(28,30,84,.08));
+      pointer-events: none;
+    }
+    .hero-art {
+      position: absolute; inset: 0; display: grid; grid-template-rows: 54% 46%;
+    }
+    .hero-art-top {
+      background: linear-gradient(120deg, rgba(0,124,137,.18), rgba(83,58,253,.08)),
+                  url('https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/header-optimized/Kao_EMEA_Homepage_Purpose_Slide-01.jpg?fmt=jpeg&qlt=100&fit=constrain,0&wid=1366') center/cover;
+    }
+    .hero-cards {
+      display: grid; grid-template-columns: 1fr; gap: 14px; padding: 16px;
+      align-items: end;
+    }
+    .product-cluster, .routine-card, .floating-card {
+      background: rgba(255,255,255,.92); border: 1px solid rgba(223,232,242,.95);
+      border-radius: 18px; box-shadow: var(--shadow-2);
+    }
+    .product-cluster { padding: 18px; }
+    .cluster-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+    .cluster-item { background: linear-gradient(180deg, #fff, #f6f9fc); border: 1px solid var(--line); border-radius: 14px; padding: 12px; min-height: 132px; display: grid; align-content: space-between; }
+    .cluster-item .label { font-size: 12px; color: var(--muted); }
+    .cluster-item strong { font-size: 15px; line-height: 1.1; }
+    .fake-bottle { width: 54px; height: 82px; border-radius: 14px 14px 10px 10px; margin-left: auto; background: linear-gradient(180deg, #ffffff, #dfeeff); border: 1px solid #d4e3f4; box-shadow: inset 0 0 0 2px rgba(255,255,255,.5); }
+    .bottle-2 { background: linear-gradient(180deg, #fff3fb, #edd4f9); }
+    .bottle-3 { background: linear-gradient(180deg, #fff8e5, #ffd690); }
+    .bottle-4 { background: linear-gradient(180deg, #f4fff7, #c5efd5); }
+    .routine-card { padding: 18px; display: grid; gap: 14px; grid-template-columns: 1fr auto; align-items: end; }
+    .routine-steps { display: grid; gap: 10px; }
+    .routine-step { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; }
+    .routine-step b { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 13px; }
+    .floating-card {
+      position: absolute; top: 18px; right: 18px; width: 210px; padding: 14px;
+    }
+    .floating-card .tag {
+      display: inline-flex; min-height: 26px; padding: 0 8px; border-radius: 999px; font-size: 11px;
+      align-items: center; background: rgba(21,190,83,.16); color: var(--success-text); border: 1px solid rgba(21,190,83,.28);
+    }
+    .section { padding: 20px 0 0; }
+    .section-header { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 18px; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 42px); font-weight: 300; letter-spacing: -.8px; line-height: 1.02; }
+    .section-copy { max-width: 70ch; color: var(--text); }
+    .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card, .feature-card, .story-card, .news-card, .brand-card, .product-card, .proof-card, .newsletter {
+      background: rgba(255,255,255,.9); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-1);
+    }
+    .card-head { padding: 18px; }
+    .feature-card { overflow: hidden; }
+    .feature-card img { height: 220px; object-fit: cover; }
+    .feature-card .body { padding: 18px; }
+    .badge { display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .badge-mint { background: var(--mint); color: var(--brand-deep); }
+    .badge-sky { background: var(--sky); color: #164f96; }
+    .badge-rose { background: var(--rose); color: #a91b5c; }
+    .badge-sand { background: var(--sand); color: #92572c; }
+    .product-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .product-card { overflow: hidden; }
+    .product-top { padding: 18px; min-height: 218px; display: grid; place-items: center; background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%); }
+    .product-bottle { width: 116px; height: 180px; border-radius: 28px 28px 18px 18px; border: 1px solid #d9e6f4; box-shadow: inset 0 0 0 4px rgba(255,255,255,.5); }
+    .pb-1 { background: linear-gradient(180deg, #d6f2ff 0%, #57a8ef 100%); }
+    .pb-2 { background: linear-gradient(180deg, #fff1f8 0%, #d27fe2 100%); }
+    .pb-3 { background: linear-gradient(180deg, #fff8e7 0%, #ffb43e 100%); }
+    .pb-4 { background: linear-gradient(180deg, #f6fff5 0%, #7ed199 100%); }
+    .product-body { padding: 18px; }
+    .stars { color: #f59e0b; letter-spacing: .06em; font-size: 14px; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; }
+    .price { font-size: 23px; font-weight: 700; color: var(--ink); }
+    .old { color: var(--muted); text-decoration: line-through; font-size: 14px; }
+    .split-band {
+      margin-top: 22px; background: var(--dark); color: #fff; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-2);
+      display: grid; grid-template-columns: 1.05fr .95fr;
+    }
+    .split-copy { padding: 28px; }
+    .split-copy p, .split-copy li { color: rgba(255,255,255,.78); }
+    .split-image { min-height: 420px; background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(249,107,238,.12)), url('https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/Kao_EMEA_Homepage_Careers-Image.jpg?fmt=jpeg&qlt=85&fit=constrain,0&wid=1366') center/cover; }
+    .brand-grid, .proof-grid, .story-grid, .news-grid, .footer-grid { display: grid; gap: 16px; }
+    .brand-grid { grid-template-columns: repeat(3, 1fr); }
+    .brand-card { padding: 18px; min-height: 220px; background: linear-gradient(180deg, #fff, #fbfdff); }
+    .brand-card strong { display: block; font-size: 28px; font-weight: 300; letter-spacing: -.5px; }
+    .brand-card p { margin-top: 10px; }
+    .brand-accent-1 { background: linear-gradient(160deg, #fff 0%, #f3ecff 100%); }
+    .brand-accent-2 { background: linear-gradient(160deg, #fff 0%, #e9f6ff 100%); }
+    .brand-accent-3 { background: linear-gradient(160deg, #fff 0%, #eefbf1 100%); }
+    .proof-grid { grid-template-columns: repeat(4, 1fr); }
+    .proof-card { padding: 20px; }
+    .proof-card .num { font-size: 38px; font-weight: 300; letter-spacing: -1px; }
+    .story-grid { grid-template-columns: 1.1fr .9fr; }
+    .story-card { overflow: hidden; }
+    .story-card img { height: 280px; object-fit: cover; }
+    .story-card .body { padding: 18px; }
+    .news-grid { grid-template-columns: repeat(3, 1fr); }
+    .news-card { overflow: hidden; }
+    .news-card img { height: 210px; object-fit: cover; }
+    .news-card .body { padding: 18px; }
+    .newsletter {
+      margin-top: 24px; padding: 24px; display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center;
+      background: linear-gradient(135deg, rgba(83,58,253,.08), rgba(0,124,137,.08));
+    }
+    .newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .input {
+      min-width: 280px; min-height: 46px; padding: 0 14px; border-radius: 6px; border: 1px solid #cfdceb;
+      background: #fff; color: var(--ink); font: inherit;
+    }
+    footer { padding: 28px 0 60px; }
+    .footer-shell {
+      background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 24px; padding: 24px; box-shadow: var(--shadow-1);
+    }
+    .footer-grid { grid-template-columns: 1.2fr repeat(4, 1fr); }
+    .footer-grid h4 { margin: 0 0 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .footer-grid a, .footer-grid p { display: block; margin: 8px 0; color: var(--text); font-size: 15px; }
+    .tiny { font-size: 12px; color: var(--muted); }
+    @media (max-width: 1120px) {
+      .hero-main, .split-band, .story-grid, .newsletter, .nav { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 720px; }
+      .floating-card { position: static; margin: 16px; width: auto; }
+      .nav-links { flex-wrap: wrap; }
+    }
+    @media (max-width: 900px) {
+      .category-grid, .product-row, .brand-grid, .proof-grid, .news-grid, .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cluster-grid { grid-template-columns: 1fr 1fr; }
+      .hero-cards { grid-template-columns: 1fr; }
+      .routine-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 20px), var(--max)); }
+      .hero-main, .split-copy, .card-head, .product-body, .newsletter, .feature-card .body, .story-card .body, .news-card .body, .footer-shell { padding: 18px; }
+      .category-grid, .product-row, .brand-grid, .proof-grid, .news-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-actions { gap: 12px; flex-wrap: wrap; }
+      .hero-visual { min-height: 880px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="logo">
+        <div class="logo-mark">kao</div>
+        <div>
+          <div style="font-size:15px;font-weight:700;color:var(--ink)">Kao EMEA</div>
+          <div class="region">EMEA / English</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#brands">Brands</a>
+        <a href="#science">Innovation</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#journal">Journal</a>
+        <a href="#footer">Support</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#">Search</a>
+        <a href="#">Account</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Cart (2)</a>
+        <a class="btn btn-primary" href="#shop">Shop now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-main">
+          <div>
+            <span class="eyebrow">New Commerce Direction • EMEA</span>
+            <h1>Science-led beauty, rebuilt for discovery, conversion, and trust.</h1>
+            <p class="lead">A premium multi-brand homepage concept for Kao EMEA that keeps the Japanese heritage and innovation story, but turns the experience into a modern ecommerce front door with strong SEO entry points, shopping intent, and reusable content modules.</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#shop">Shop best sellers</a>
+              <a class="btn btn-secondary" href="#brands">Explore brands</a>
+              <a class="btn btn-ghost" href="#routine">Find your routine</a>
+            </div>
+            <div class="trust-row">
+              <div class="trust-card"><strong>Official brand destination</strong><span>Hair, skin, body, sun, gifting</span></div>
+              <div class="trust-card"><strong>Japanese heritage since 1887</strong><span>Science, care, formulation expertise</span></div>
+              <div class="trust-card"><strong>Sustainability in practice</strong><span>Refill, packaging, sourcing, impact stories</span></div>
+            </div>
+            <div class="mini-kpis">
+              <div class="kpi"><strong>12 brands</strong><br><span>EMEA portfolio discovery</span></div>
+              <div class="kpi"><strong>13 locations</strong><br><span>Regional footprint and trust</span></div>
+              <div class="kpi"><strong>4 routes to shop</strong><br><span>By category, concern, brand, routine</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="floating-card">
+              <span class="tag">SEO-ready module</span>
+              <h3 style="margin:10px 0 8px;font-size:20px;font-weight:300;line-height:1.05;letter-spacing:-.35px;">Homepage intent clusters</h3>
+              <p style="margin:0;color:var(--text);font-size:14px;">Hair care • Skin care • SPF • Sensitive skin • Damaged hair • Sustainability</p>
+            </div>
+            <div class="hero-art">
+              <div class="hero-art-top"></div>
+              <div class="hero-cards">
+                <div class="product-cluster">
+                  <span class="badge badge-sky">Trending now</span>
+                  <h3 style="margin:12px 0 0;font-size:26px;font-weight:300;letter-spacing:-.3px;">Best sellers and campaign launches</h3>
+                  <div class="cluster-grid">
+                    <div class="cluster-item"><div><div class="label">Sun care</div><strong>Bioré UV Aqua Rich</strong></div><div class="fake-bottle"></div></div>
+                    <div class="cluster-item"><div><div class="label">Salon care</div><strong>Oribe Gold Lust</strong></div><div class="fake-bottle bottle-2"></div></div>
+                    <div class="cluster-item"><div><div class="label">Sensitive skin</div><strong>Curél Barrier Care</strong></div><div class="fake-bottle bottle-3"></div></div>
+                    <div class="cluster-item"><div><div class="label">Shine & repair</div><strong>John Frieda Frizz Ease</strong></div><div class="fake-bottle bottle-4"></div></div>
+                  </div>
+                </div>
+                <div class="routine-card" id="routine">
+                  <span class="badge badge-mint">Routine finder</span>
+                  <h3 style="margin:0;font-size:24px;font-weight:300;letter-spacing:-.28px;">Shop by concern, not only by brand.</h3>
+                  <div class="routine-steps">
+                    <div class="routine-step"><b>1</b><div><strong>Choose concern</strong><br><span class="tiny">Dry scalp, frizz, SPF, sensitivity, repair</span></div></div>
+                    <div class="routine-step"><b>2</b><div><strong>Get a recommended routine</strong><br><span class="tiny">Cleanser, treatment, leave-in, protection</span></div></div>
+                    <div class="routine-step"><b>3</b><div><strong>Add the full routine</strong><br><span class="tiny">One-click bundles and refill options</span></div></div>
+                  </div>
+                  <a class="btn btn-primary" href="#shop">Start routine</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <h2>Shop by category, concern, and collection</h2>
+            <p class="section-copy">Instead of a brochure-style homepage, this concept makes product discovery the core journey. Visitors can enter from category, concern, brand, or campaign — all of which are stronger for commerce and SEO.</p>
+          </div>
+          <a class="btn btn-ghost" href="#">View all categories</a>
+        </div>
+        <div class="category-grid">
+          <article class="feature-card">
+            <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/new-images/Kao_EMEA_Homepage_Brand-Image_477x240px_2026.jpg?fmt=jpeg&qlt=85&fit=constrain,0&wid=1366" alt="Beauty brand assortment" />
+            <div class="body">
+              <span class="badge badge-rose">Shop by brand</span>
+              <h3 style="font-size:28px;font-weight:300;letter-spacing:-.35px;">12 brands, one premium discovery layer</h3>
+              <p>Let visitors start from Oribe, Molton Brown, John Frieda, Bioré, Curél, Goldwell, and more.</p>
+              <a class="btn btn-secondary" href="#brands">Explore brands</a>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/Kao_EMEA_Homepage_Innovation-Image.jpg?fmt=jpeg&qlt=85&fit=constrain,0&wid=1366" alt="Innovation and research" />
+            <div class="body">
+              <span class="badge badge-sky">Shop by science</span>
+              <h3 style="font-size:28px;font-weight:300;letter-spacing:-.35px;">Ingredient stories that sell, not just inform</h3>
+              <p>Turn innovation into rich entry pages for hydration, scalp care, anti-frizz, repair, UV protection, and refill systems.</p>
+              <a class="btn btn-secondary" href="#science">See science layer</a>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/Kao_EMEA_Homepage_Sustainability-Image.jpg?fmt=jpeg&qlt=85" alt="Sustainability" />
+            <div class="body">
+              <span class="badge badge-mint">Shop sustainably</span>
+              <h3 style="font-size:28px;font-weight:300;letter-spacing:-.35px;">Refill, packaging, and responsible choice paths</h3>
+              <p>Make sustainability visible in the shopping flow: refill products, conscious packaging, and proof-backed impact modules.</p>
+              <a class="btn btn-secondary" href="#sustainability">View proof points</a>
+            </div>
+          </article>
+          <article class="feature-card">
+            <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/Kao_EMEA_Homepage_Careers-Image.jpg?fmt=jpeg&qlt=85&fit=constrain,0&wid=1366" alt="Community and people" />
+            <div class="body">
+              <span class="badge badge-sand">Editorial commerce</span>
+              <h3 style="font-size:28px;font-weight:300;letter-spacing:-.35px;">Journal, routines, and launch storytelling</h3>
+              <p>Content should support search demand and conversion: expert how-tos, launch pages, concern guides, and gift edits.</p>
+              <a class="btn btn-secondary" href="#journal">Open journal</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <h2>Best sellers for conversion-first merchandising</h2>
+            <p class="section-copy">A homepage should surface proof, pricing, merchandising hierarchy, and fast paths into cart. These cards model the system needed for a real PLP/PDP ecosystem.</p>
+          </div>
+          <a class="btn btn-ghost" href="#">Open all best sellers</a>
+        </div>
+        <div class="product-row">
+          <article class="product-card">
+            <div class="product-top"><div class="product-bottle pb-1"></div></div>
+            <div class="product-body">
+              <span class="badge badge-sky">SPF bestseller</span>
+              <h3 style="font-size:25px;font-weight:300;letter-spacing:-.28px;margin:12px 0 6px;">Bioré UV Aqua Rich</h3>
+              <div class="stars">★★★★★ <span style="color:var(--muted)">4.8 (2,314)</span></div>
+              <p>Lightweight daily UV protection with texture-led campaign landing and travel-size upsell.</p>
+              <div class="price-row"><div><div class="price">€18</div><div class="old">€22</div></div><a class="btn btn-primary" href="#">Quick add</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-top"><div class="product-bottle pb-2"></div></div>
+            <div class="product-body">
+              <span class="badge badge-rose">Hair repair</span>
+              <h3 style="font-size:25px;font-weight:300;letter-spacing:-.28px;margin:12px 0 6px;">Oribe Gold Lust Oil</h3>
+              <div class="stars">★★★★★ <span style="color:var(--muted)">4.9 (986)</span></div>
+              <p>Premium hero SKU with refill messaging, editorial story, and high-margin gifting pathways.</p>
+              <div class="price-row"><div><div class="price">€54</div><div class="old">€62</div></div><a class="btn btn-primary" href="#">Quick add</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-top"><div class="product-bottle pb-3"></div></div>
+            <div class="product-body">
+              <span class="badge badge-sand">Sensitive skin</span>
+              <h3 style="font-size:25px;font-weight:300;letter-spacing:-.28px;margin:12px 0 6px;">Curél Barrier Essence</h3>
+              <div class="stars">★★★★☆ <span style="color:var(--muted)">4.7 (1,102)</span></div>
+              <p>Concern-led PDP cluster for sensitive skin, barrier support, and expert routine content.</p>
+              <div class="price-row"><div><div class="price">€29</div><div class="old">€34</div></div><a class="btn btn-primary" href="#">Quick add</a></div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="product-top"><div class="product-bottle pb-4"></div></div>
+            <div class="product-body">
+              <span class="badge badge-mint">New launch</span>
+              <h3 style="font-size:25px;font-weight:300;letter-spacing:-.28px;margin:12px 0 6px;">John Frieda Frizz Ease+</h3>
+              <div class="stars">★★★★★ <span style="color:var(--muted)">4.8 (745)</span></div>
+              <p>Launch module connected to news, UGC, before/after proof, and hair-concern category landings.</p>
+              <div class="price-row"><div><div class="price">€24</div><div class="old">€28</div></div><a class="btn btn-primary" href="#">Quick add</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="science">
+      <div class="wrap split-band">
+        <div class="split-copy">
+          <span class="badge badge-sky">Innovation & authority</span>
+          <h2 style="color:#fff;margin-top:12px;">Keep the science story — but compress it into a commerce advantage.</h2>
+          <p>R&D is already a real asset in the current Kao page. In the new homepage, innovation should become a system of proof blocks: ingredient stories, testing claims, refill technology, formulation benefits, and product-linked education that improves conversion and builds SEO depth.</p>
+          <ul>
+            <li>Ingredient-led landing pages for hair repair, scalp care, hydration, SPF, and sensitivity</li>
+            <li>Search-friendly evergreen guides linked directly to relevant products and bundles</li>
+            <li>Expert-backed proof modules with measurable claims and clean comparison patterns</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#journal">Explore science stories</a>
+            <a class="btn btn-secondary" href="#">See innovation pages</a>
+          </div>
+        </div>
+        <div class="split-image"></div>
+      </div>
+    </section>
+
+    <section class="section" id="brands">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <h2>Brand landing system, not just a brand list</h2>
+            <p class="section-copy">Each featured brand needs a proper landing experience: positioning, signature products, hero collection, editorial proof, reviews, and a clear route to shop.</p>
+          </div>
+        </div>
+        <div class="brand-grid">
+          <article class="brand-card brand-accent-1">
+            <span class="badge badge-rose">Premium hair care</span>
+            <strong>Oribe</strong>
+            <p>Luxury performance, elevated gifting, signature routines, editorial photography, and refill-ready premium storytelling.</p>
+            <a class="btn btn-secondary" href="#">Open brand page</a>
+          </article>
+          <article class="brand-card brand-accent-2">
+            <span class="badge badge-sky">Daily UV hero</span>
+            <strong>Bioré</strong>
+            <p>SPF and daily protection with clean PDP hierarchy, local campaign pages, review-led proof, and sun-care search clusters.</p>
+            <a class="btn btn-secondary" href="#">Open brand page</a>
+          </article>
+          <article class="brand-card brand-accent-3">
+            <span class="badge badge-mint">Barrier care</span>
+            <strong>Curél</strong>
+            <p>Sensitive-skin commerce path built around concern pages, routine education, trust modules, and dermatologist-friendly content structure.</p>
+            <a class="btn btn-secondary" href="#">Open brand page</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sustainability">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <h2>Sustainability should be measurable, searchable, and shoppable</h2>
+            <p class="section-copy">The current site already has sustainability credibility. The rebuild should express it as proof-based modules connected to specific product lines, refills, packaging improvements, and sourcing stories.</p>
+          </div>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card"><div class="num">01</div><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Refill-led product lanes</h3><p>Dedicated collection pages for refill-ready SKUs and durable packaging systems.</p></article>
+          <article class="proof-card"><div class="num">02</div><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Impact metrics</h3><p>Not only promises — show measurable packaging, sourcing, manufacturing, and ESG progress.</p></article>
+          <article class="proof-card"><div class="num">03</div><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Decision support</h3><p>Help users choose with material, refill, cruelty, or ingredient transparency filters where relevant.</p></article>
+          <article class="proof-card"><div class="num">04</div><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Search depth</h3><p>Build evergreen SEO assets around sustainability topics that tie directly back to products and brands.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <h2>Journal and news: fresh content with stronger commercial purpose</h2>
+            <p class="section-copy">Instead of letting news dominate the homepage without conversion value, the new design separates commerce-supporting editorial from corporate news.</p>
+          </div>
+          <a class="btn btn-ghost" href="#">Open full journal</a>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/homepage/Kao_EMEA_Homepage_Kao-EMEA-Image.jpg?fmt=jpeg&qlt=85&fit=constrain,0&wid=1366" alt="Kao EMEA offices" />
+            <div class="body">
+              <span class="badge badge-sky">Editorial feature</span>
+              <h3 style="font-size:30px;font-weight:300;letter-spacing:-.4px;">From corporate storytelling to category-led discovery</h3>
+              <p>Use long-form editorial to answer real search demand: how to build a frizz routine, how to choose SPF, what sensitive skin needs, and how refill systems reduce waste.</p>
+              <a class="btn btn-secondary" href="#">Read feature</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="https://www.kao.com/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/news/thumbnails/JF_DC_SH_MUS_GBSPRY_VCMSK_SBSH_VLRB_TXTSPRY_PFSH_THKSPRY_SRM_BOSPRY_MBHS_LP1_GRP_LP.jpg?wid=1366" alt="John Frieda relaunch" />
+            <div class="body">
+              <span class="badge badge-rose">Launch hub</span>
+              <h3 style="font-size:30px;font-weight:300;letter-spacing:-.4px;">Launch pages that convert</h3>
+              <p>Brand relaunches should combine editorial narrative, featured products, before-and-after proof, reviews, bundles, and email capture.</p>
+              <a class="btn btn-secondary" href="#">Open launch concept</a>
+            </div>
+          </article>
+        </div>
+        <div class="news-grid" style="margin-top:16px;">
+          <article class="news-card">
+            <img src="https://www.kao.com/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/news/2026/115104_Biore_EMEA_Social_Assets_Oct_SPF_Shadow_sq.jpg?wid=1366" alt="Biore campaign" />
+            <div class="body"><span class="badge badge-sky">SEO cluster</span><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Best sunscreen for daily urban use</h3><p>Evergreen content page connected to Bioré UV products and SPF education.</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://www.kao.com/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/news/Curel230.jpg?wid=1366" alt="Curel launch" />
+            <div class="body"><span class="badge badge-sand">Concern guide</span><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">How to build a sensitive skin routine</h3><p>High-intent guide page tied to Curél collection and barrier-care PDPs.</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://www.kao.com/content/dam/sites/kao/www-kao-com/emea/en/redesign-2025/news/German-Brand-Award-230.jpg?wid=1366" alt="Brand award" />
+            <div class="body"><span class="badge badge-mint">Trust proof</span><h3 style="font-size:24px;font-weight:300;letter-spacing:-.25px;">Awards and recognition as conversion proof</h3><p>Turn awards, report releases, and performance stories into trust modules near product discovery.</p></div>
+          </article>
+        </div>
+
+        <div class="newsletter">
+          <div>
+            <span class="badge badge-rose">Retention module</span>
+            <h2 style="margin-top:12px;">Capture intent before visitors leave.</h2>
+            <p class="section-copy">Offer launch alerts, seasonal edits, routine recommendations, and member-only access. This block can later become loyalty, subscription, or replenishment onboarding.</p>
+          </div>
+          <form class="newsletter-form">
+            <input class="input" type="email" value="name@email.com" aria-label="Email" />
+            <a class="btn btn-primary" href="#">Get early access</a>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="wrap footer-shell">
+      <div class="footer-grid">
+        <div>
+          <div class="logo-mark" style="margin-bottom:8px;">kao</div>
+          <p>Kao EMEA reimagined as a premium multi-brand beauty and personal care commerce destination.</p>
+          <p class="tiny">Mockup concept for homepage rebuild, ecommerce readiness, and stronger SEO structure.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <a href="#">Hair care</a>
+          <a href="#">Skin care</a>
+          <a href="#">Bath & body</a>
+          <a href="#">Sun care</a>
+        </div>
+        <div>
+          <h4>Discover</h4>
+          <a href="#">Brands</a>
+          <a href="#">Best sellers</a>
+          <a href="#">Routine finder</a>
+          <a href="#">Gift edits</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#">Shipping & returns</a>
+          <a href="#">FAQ</a>
+          <a href="#">Contact us</a>
+          <a href="#">Accessibility</a>
+        </div>
+        <div>
+          <h4>About</h4>
+          <a href="#">Sustainability</a>
+          <a href="#">Innovation</a>
+          <a href="#">Newsroom</a>
+          <a href="#">Careers</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
